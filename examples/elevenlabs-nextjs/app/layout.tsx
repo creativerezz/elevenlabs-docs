@@ -9,6 +9,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Card } from '@/components/ui/card';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Toaster } from '@/components/ui/sonner';
+import Script from 'next/script';
 
 import './globals.css';
 
@@ -64,6 +65,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </KeyProvider>
           <Toaster />
         </ThemeProvider>
+        {/* ElevenLabs Convai widget */}
+        {/* @ts-expect-error - custom element not in JSX.IntrinsicElements */}
+        <elevenlabs-convai agent-id="agent_01jz0jrr14fp6ak49qqbqjx5mt"></elevenlabs-convai>
+        <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" strategy="afterInteractive" async />
       </body>
     </html>
   );
